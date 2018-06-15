@@ -34,7 +34,7 @@
         AssignCoord(5, 6)
         AssignCoord(5, 7)
         AssignCoord(5, 8)
-        'RandomizeGems()
+        RandomizeGems()
     End Sub
 
     ' Randomize gems on board
@@ -74,8 +74,8 @@
                 .BackColor = Color.Transparent
                 .Image = My.Resources._5
                 .Name = "Gem5_" & i
-                .Location = New Point(CInt(LegalGemTiles(rand).Left + LegalGemTiles(rand).Width / 120),
-                                              CInt(LegalGemTiles(rand).Top + LegalGemTiles(rand).Height / 120))
+                .Location = New Point(CInt(LegalGemTiles(rand).Left + LegalGemTiles(rand).Width - 65),
+                                              CInt(LegalGemTiles(rand).Top + LegalGemTiles(rand).Height - 75))
             End With
 
             LegalGemHexs(rand).occupied = True
@@ -100,7 +100,7 @@
             Current.SetCoord = NewCoord
             Board(NewCoord.x, NewCoord.y).occupied = True
             Current.SetTile = Tile
-            PicBox.Location = New Point(CInt(Tile.Left + Tile.Width / 180), CInt(Tile.Top + Tile.Height / 120))
+            PicBox.Location = New Point(CInt(Tile.Left + Tile.Width - 75), CInt(Tile.Top + Tile.Height - 100))
             Moves -= 1
             lblMoves.Text = Moves
         End If
@@ -162,9 +162,11 @@
         THex.x = Player00.GetCoord.x
         THex.y = Player00.GetCoord.y
         If PTurn = 0 Then
+            MessageBox.Show("D")
             Current = Player00
             PicBox = DirectCast(sender, PictureBox)
         ElseIf LegalMove(Board(Player00.GetCoord.x, Player00.GetCoord.y), THex) Then
+            MessageBox.Show("D")
             MovePiece(Board(THex.x, THex.y), THex, Player00.GetTile)
             C1p1.Image = Nothing
             C1p1.Dispose()
@@ -798,18 +800,22 @@
         MovePiece(Board(xy.x, xy.y), xy, sender)
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub btnThrowDice_Click(sender As Object, e As EventArgs) Handles btnThrowDice.Click
         If Dice_Thrown = False Then
+            d1.Visible = True
+            d1.BringToFront()
             Timer1.Start()
             Dice_Thrown = True
         End If
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        Windows.Forms.ProgressBar.Increment(5)
-        If Windows.Forms.ProgressBar.Value = 100 Then
+        ProgressBar.Increment(5)
+        If ProgressBar.Value = 100 Then
             Timer1.Stop()
-            Windows.Forms.ProgressBar.Value = 0
+            ProgressBar.Value = 0
+            d1.Visible = False
+            d2.Image = d1.Image
             lblMoves.Text = Moves
         Else
             Moves = GetRandom(1, 6)
@@ -829,11 +835,12 @@
         End If
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        EndTurn()
-    End Sub
     ' remove this at the end
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs)
         Moves += 100
+    End Sub
+
+    Private Sub btnEndTurn_Click(sender As Object, e As EventArgs) Handles btnEndTurn.Click
+        EndTurn()
     End Sub
 End Class

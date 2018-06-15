@@ -181,5 +181,26 @@
   <ItemGroup>
     <None Include="Resources\9.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\C1p1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\C1p2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\C1p3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\C2p1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\C2p2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\C2p3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_223C914F58C92911282784%27.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
