@@ -6,6 +6,9 @@
     End Structure
 
     Public Structure Hex
+        Public tag As Integer
+        Public piece As Object
+        Public player As Object
         Public occupied As Boolean
         Public gem As Integer
         Public coordinate As Coord

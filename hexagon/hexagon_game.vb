@@ -2,38 +2,44 @@
     Public Current As Object = Nothing
     Public PTurn As Integer = 0
     Dim PicBox As PictureBox
-    Dim STiles() As PictureBox = {DirectCast(Me.Controls.Find("X0y0", True).FirstOrDefault(), PictureBox),
-                                  DirectCast(Me.Controls.Find("X2y0", True).FirstOrDefault(), PictureBox),
-                                  DirectCast(Me.Controls.Find("X5y0", True).FirstOrDefault(), PictureBox),
-                                  DirectCast(Me.Controls.Find("X0y15", True).FirstOrDefault(), PictureBox),
-                                  DirectCast(Me.Controls.Find("X2y15", True).FirstOrDefault(), PictureBox),
-                                  DirectCast(Me.Controls.Find("X4y15", True).FirstOrDefault(), PictureBox)}
-    Public Player00 As New Clan(C1p1, 0, 0, STiles(0))
-    Public Player01 As New Clan(C1p2, 2, 0, STiles(1))
-    Public Player02 As New Clan(C1p3, 5, 0, STiles(2))
-    Public Player10 As New Clan(C2p1, 0, 15, STiles(3))
-    Public Player11 As New Clan(C2p2, 2, 15, STiles(4))
-    Public Player12 As New Clan(C2p3, 4, 15, STiles(5))
+    Dim STiles() As String = {"C1p1", "C1p2", "C1p3", "C2p1", "C2p2", "C2p3"}
+    Public Player00 As New Clan(0, 0, STiles(0), 1)
+    Public Player01 As New Clan(2, 0, STiles(1), 1)
+    Public Player02 As New Clan(5, 0, STiles(2), 1)
+    Public Player10 As New Clan(0, 15, STiles(3), 0)
+    Public Player11 As New Clan(2, 15, STiles(4), 0)
+    Public Player12 As New Clan(4, 15, STiles(5), 0)
 
     ' Creates a game and sets the board
     Private Sub hexagon_game_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        AssignCoord(0, 5)
         AssignCoord(0, 6)
         AssignCoord(0, 8)
+        AssignCoord(0, 9)
+        AssignCoord(1, 5)
         AssignCoord(1, 6)
         AssignCoord(1, 7)
         AssignCoord(1, 8)
+        AssignCoord(1, 9)
+        AssignCoord(2, 5)
         AssignCoord(2, 6)
         AssignCoord(2, 7)
         AssignCoord(2, 8)
+        AssignCoord(2, 9)
+        AssignCoord(3, 5)
         AssignCoord(3, 7)
         AssignCoord(3, 8)
+        AssignCoord(3, 9)
+        AssignCoord(4, 5)
         AssignCoord(4, 6)
         AssignCoord(4, 7)
         AssignCoord(4, 8)
+        AssignCoord(4, 9)
+        AssignCoord(5, 5)
         AssignCoord(5, 6)
         AssignCoord(5, 7)
         AssignCoord(5, 8)
+        AssignCoord(5, 9)
         UpdateScores(0)
         RandomizeGems()
     End Sub
@@ -42,22 +48,25 @@
     Public Sub RandomizeGems()
 
         Dim LegalGemHexs As Hex() = {Board(0, 5), Board(0, 6), Board(0, 8), Board(0, 9),
-                                     Board(1, 6), Board(1, 7), Board(1, 8),
-                                     Board(2, 6), Board(2, 7), Board(2, 8),
-                                                  Board(3, 7), Board(3, 8),
-                                     Board(4, 6), Board(4, 7), Board(4, 8),
-                                     Board(5, 6), Board(5, 7), Board(5, 8)}
+                                     Board(1, 5), Board(1, 6), Board(1, 7), Board(1, 8), Board(1, 9),
+                                     Board(2, 5), Board(2, 6), Board(2, 7), Board(2, 8), Board(2, 9),
+                                     Board(3, 5), Board(3, 7), Board(3, 8), Board(3, 9),
+                                     Board(4, 6), Board(4, 7), Board(4, 8), Board(4, 9),
+                                     Board(5, 5), Board(5, 6), Board(5, 7), Board(5, 8), Board(5, 9)}
 
-        Dim LegalGemTiles As PictureBox() = {X0y6, X0y8,
-                                             X1y6, X1y7, X1y8,
-                                             X2y6, X2y7, X2y8}
+        Dim LegalGemTiles As PictureBox() = {X0y5, X0y6, X0y8, X0y9,
+                                             X1y5, X1y6, X1y7, X1y8, X1y9,
+                                             X2y5, X2y6, X2y7, X2y8, X2y9,
+                                             X3y5, X3y7, X3y8, X3y9,
+                                             X4y6, X4y7, X4y8, X4y9,
+                                             X5y5, X5y6, X5y7, X5y8, X5y9}
 
         For i As Integer = 0 To 2 Step 1
-            Dim rand As Integer = GetRandom(0, 7)
+            Dim rand As Integer = GetRandom(0, 26)
             Dim pb As New PictureBox()
 
             While (LegalGemHexs(rand).occupied = True)
-                rand = GetRandom(0, 7)
+                rand = GetRandom(0, 26)
             End While
 
             Dim hexagon As Hex = LegalGemHexs(rand)
@@ -87,16 +96,16 @@
         Next
 
         For i As Integer = 0 To 4 Step 1
-            Dim rand As Integer = GetRandom(0, 7)
+            Dim rand As Integer = GetRandom(0, 26)
             Dim pb As New PictureBox()
 
             While (LegalGemHexs(rand).occupied = True)
-                rand = GetRandom(0, 7)
+                rand = GetRandom(0, 26)
             End While
 
             Dim hexagon As Hex = LegalGemHexs(rand)
 
-            hexagon.gem = 5
+            hexagon.gem = 3
             hexagon.occupied = True
 
             LegalGemTiles(rand).Enabled = False
@@ -120,6 +129,38 @@
             pb.BringToFront()
         Next
 
+        Dim rand1 As Integer = GetRandom(0, 26)
+        Dim pb1 As New PictureBox()
+
+        While (LegalGemHexs(rand1).occupied = True)
+            rand1 = GetRandom(0, 26)
+        End While
+
+        Dim hexagon1 As Hex = LegalGemHexs(rand1)
+
+        hexagon1.gem = 9
+        hexagon1.occupied = True
+
+        LegalGemTiles(rand1).Enabled = False
+
+        With pb1
+            .Tag = hexagon1
+            .Height = 65
+            .Width = 60
+            .SizeMode = PictureBoxSizeMode.StretchImage
+            .BackColor = Color.Transparent
+            .Image = My.Resources._9
+            .Name = "Gem9_" & 1
+            .Location = New Point(CInt(LegalGemTiles(rand1).Left + LegalGemTiles(rand1).Width - 65),
+                                          CInt(LegalGemTiles(rand1).Top + LegalGemTiles(rand1).Height - 75))
+        End With
+
+        LegalGemHexs(rand1).occupied = True
+        LegalGemHexs(rand1).gem = 9
+        AddHandler pb1.Click, AddressOf Gem_Click
+        Controls.Add(pb1)
+        pb1.BringToFront()
+
     End Sub
 
     ' Plays movement sounds
@@ -129,7 +170,12 @@
 
     ' Plays capture sounds
     Sub PlayCapture()
-        My.Computer.Audio.Play(My.Resources.movement, AudioPlayMode.Background)
+        My.Computer.Audio.Play(My.Resources.movement, AudioPlayMode.WaitToComplete)
+    End Sub
+
+    'Plays gem capture sound
+    Sub PlayCoin()
+        My.Computer.Audio.Play(My.Resources.smw_coin, AudioPlayMode.WaitToComplete)
     End Sub
 
     ' Uses a static variable to allow random values based off of system clock 
@@ -141,10 +187,12 @@
     ' Updates a game when a move is made
     Public Sub MovePiece(Hexagon As Hex, NewCoord As Coord, Tile As PictureBox)
         If LegalMove(Board(NewCoord.x, NewCoord.y), NewCoord) Then
+            Board(NewCoord.x, NewCoord.y).player = Current
+            Board(NewCoord.x, NewCoord.y).piece = Current.GetTile
+            Board(NewCoord.x, NewCoord.y).tag = Current.GetTag
             Board(Current.GetCoord.x, Current.GetCoord.y).occupied = False
             Current.SetCoord = NewCoord
             Board(NewCoord.x, NewCoord.y).occupied = True
-            Current.SetTile = Tile
             PicBox.Location = New Point(CInt(Tile.Left + Tile.Width - 75), CInt(Tile.Top + Tile.Height - 100))
             Moves -= 1
             lblMoves.Text = Moves
@@ -162,9 +210,14 @@
     ' Determines if a player can move based off the rules of the game
     Public Function LegalMove(Hexagon As Hex, NewCoord As Coord) As Boolean
         Dim legal As Boolean = False
+
         If Current Is Nothing Or Moves = 0 Then
             Return legal
         End If
+        Dim curx As Integer = Current.GetCoord.x
+        Dim cury As Integer = Current.GetCoord.y
+        Dim nx As Integer = NewCoord.x
+        Dim ny As Integer = NewCoord.y
         If Current.GetCoord.x = NewCoord.x And Math.Abs(Current.GetCoord.y - NewCoord.y) = 1 Then
             legal = True
         ElseIf Current.GetCoord.y = NewCoord.y And Current.GetCoord.x - NewCoord.x < 0 And
@@ -182,8 +235,24 @@
             Current.SetScore = Hexagon.gem
             UpdateScores(Hexagon.gem)
         End If
+
+        If (ny - cury) = 2 And Board(curx, cury + 1).tag <> Current.GetTag Then
+            Dim nhex As Coord
+            nhex.x = curx
+            nhex.y = cury + 1
+            TakeEnemy(nhex)
+            legal = True
+        End If
+
         Return legal
     End Function
+
+    Public Sub TakeEnemy(location As Coord)
+        Dim pb As PictureBox = DirectCast(Me.Controls.Find(Board(location.x, location.y).piece, True).FirstOrDefault(), PictureBox)
+        Current.SetScore = Board(location.x, location.y).player.GetScore
+        Me.Controls.Remove(pb)
+        Board(location.x, location.y).occupied = False
+    End Sub
 
     'Updates the game scores
     Public Sub UpdateScores(Value As Integer)
@@ -223,88 +292,44 @@
     '''                      '''
 
     Private Sub C1p1_Click(sender As Object, e As EventArgs) Handles C1p1.Click
-        Dim THex As Coord
-        THex.x = Player00.GetCoord.x
-        THex.y = Player00.GetCoord.y
         If PTurn = 0 Then
-            MessageBox.Show("D")
             Current = Player00
             PicBox = DirectCast(sender, PictureBox)
-        ElseIf LegalMove(Board(Player00.GetCoord.x, Player00.GetCoord.y), THex) Then
-            MessageBox.Show("D")
-            MovePiece(Board(THex.x, THex.y), THex, Player00.GetTile)
-            C1p1.Image = Nothing
-            C1p1.Dispose()
         End If
     End Sub
 
     Private Sub C1p2_Click(sender As Object, e As EventArgs) Handles C1p2.Click
-        Dim THex As Coord
-        THex.x = Player01.GetCoord.x
-        THex.y = Player01.GetCoord.y
         If PTurn = 0 Then
             Current = Player01
             PicBox = DirectCast(sender, PictureBox)
-        ElseIf LegalMove(Board(Player01.GetCoord.x, Player01.GetCoord.y), THex) Then
-            MovePiece(Board(THex.x, THex.y), THex, Player01.GetTile)
-            C1p2.Image = Nothing
-            C1p2.Dispose()
         End If
     End Sub
 
     Private Sub C1p3_Click(sender As Object, e As EventArgs) Handles C1p3.Click
-        Dim THex As Coord
-        THex.x = Player02.GetCoord.x
-        THex.y = Player02.GetCoord.y
         If PTurn = 0 Then
             Current = Player02
             PicBox = DirectCast(sender, PictureBox)
-        ElseIf LegalMove(Board(Player02.GetCoord.x, Player02.GetCoord.y), THex) Then
-            MovePiece(Board(THex.x, THex.y), THex, Player02.GetTile)
-            C1p2.Image = Nothing
-            C1p2.Dispose()
         End If
     End Sub
 
     Private Sub C2p1_Click(sender As Object, e As EventArgs) Handles C2p1.Click
-        Dim THex As Coord
-        THex.x = Player10.GetCoord.x
-        THex.y = Player10.GetCoord.y
         If PTurn = 1 Then
             Current = Player10
             PicBox = DirectCast(sender, PictureBox)
-        ElseIf LegalMove(Board(Player10.GetCoord.x, Player10.GetCoord.y), THex) Then
-            MovePiece(Board(THex.x, THex.y), THex, Player11.GetTile)
-            C2p1.Image = Nothing
-            C2p1.Dispose()
         End If
     End Sub
 
     Private Sub C2p2_Click(sender As Object, e As EventArgs) Handles C2p2.Click
-        Dim THex As Coord
-        THex.x = Player11.GetCoord.x
-        THex.y = Player11.GetCoord.y
         If PTurn = 1 Then
             Current = Player11
             PicBox = DirectCast(sender, PictureBox)
-        ElseIf LegalMove(Board(Player11.GetCoord.x, Player11.GetCoord.y), THex) Then
-            MovePiece(Board(THex.x, THex.y), THex, Player11.GetTile)
-            C2p2.Image = Nothing
-            C2p2.Dispose()
         End If
     End Sub
 
     Private Sub C2p3_Click(sender As Object, e As EventArgs) Handles C2p3.Click
-        Dim THex As Coord
-        THex.x = Player12.GetCoord.x
-        THex.y = Player12.GetCoord.y
         If PTurn = 1 Then
             Current = Player12
             PicBox = DirectCast(sender, PictureBox)
-        ElseIf LegalMove(Board(Player12.GetCoord.x, Player12.GetCoord.y), THex) Then
-            MovePiece(Board(THex.x, THex.y), THex, Player12.GetTile)
-            C2p3.Image = Nothing
-            C2p3.Dispose()
         End If
     End Sub
 
@@ -315,6 +340,7 @@
         THex.x = hexagon.x
         THex.y = hexagon.y
         If LegalMove(hexagon, THex) Then
+            PlayCoin()
             hexagon.tile.Enabled = True
             MovePiece(hexagon, THex, hexagon.tile)
             sender.Image = Nothing

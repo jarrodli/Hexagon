@@ -257,5 +257,14 @@ Namespace My.Resources
                 Return ResourceManager.GetStream("movement", resourceCulture)
             End Get
         End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property smw_coin() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("smw_coin", resourceCulture)
+            End Get
+        End Property
     End Module
 End Namespace

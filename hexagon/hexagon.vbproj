@@ -74,13 +74,6 @@
   <ItemGroup>
     <Compile Include="Class1.vb" />
     <Compile Include="Class2.vb" />
-    <Compile Include="Form1.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="hexagon_game.Designer.vb">
       <DependentUpon>hexagon_game.vb</DependentUpon>
     </Compile>
@@ -111,9 +104,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="hexagon_game.resx">
       <DependentUpon>hexagon_game.vb</DependentUpon>
     </EmbeddedResource>
@@ -225,6 +215,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\rego.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smw_coin.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
