@@ -236,10 +236,30 @@
             UpdateScores(Hexagon.gem)
         End If
 
-        If (ny - cury) = 2 And Board(curx, cury + 1).tag <> Current.GetTag Then
+        If (ny - cury) = 2 AndAlso Board(curx, cury + 1).tag <> Current.GetTag AndAlso Board(curx, cury + 1).occupied = True Then
             Dim nhex As Coord
             nhex.x = curx
             nhex.y = cury + 1
+            TakeEnemy(nhex)
+            legal = True
+        ElseIf (ny - cury) = -2 AndAlso Board(curx, cury - 1).tag <> Current.GetTag AndAlso Board(curx, cury - 1).occupied = True Then
+            Dim nhex As Coord
+            nhex.x = curx
+            nhex.y = cury - 1
+            TakeEnemy(nhex)
+            legal = True
+        ElseIf (ny - cury) = 1 AndAlso Math.Abs(nx - curx) = 1 AndAlso Board(curx, cury + 1).tag <> Current.GetTag AndAlso
+            Board(curx, cury + 1).occupied = True Then
+            Dim nhex As Coord
+            nhex.x = curx
+            nhex.y = cury + 1
+            TakeEnemy(nhex)
+            legal = True
+        ElseIf (ny - cury) = -1 AndAlso Math.Abs(nx - curx) = 1 AndAlso Board(curx, cury - 1).tag <> Current.GetTag AndAlso
+            Board(curx, cury - 1).occupied = True Then
+            Dim nhex As Coord
+            nhex.x = curx
+            nhex.y = cury - 1
             TakeEnemy(nhex)
             legal = True
         End If
@@ -250,6 +270,7 @@
     Public Sub TakeEnemy(location As Coord)
         Dim pb As PictureBox = DirectCast(Me.Controls.Find(Board(location.x, location.y).piece, True).FirstOrDefault(), PictureBox)
         Current.SetScore = Board(location.x, location.y).player.GetScore
+        UpdateScores(Board(location.x, location.y).player.GetScore)
         Me.Controls.Remove(pb)
         Board(location.x, location.y).occupied = False
     End Sub
