@@ -66,6 +66,8 @@
             hexagon.gem = 5
             hexagon.occupied = True
 
+            LegalGemTiles(rand).Enabled = False
+
             With pb
                 .Tag = hexagon
                 .Height = 65
@@ -135,7 +137,6 @@
             Current.SetScore = Hexagon.gem
             lblScore.Text = CStr(Current.GetScore)
         End If
-
         Return legal
     End Function
 
@@ -249,6 +250,7 @@
         THex.x = hexagon.x
         THex.y = hexagon.y
         If LegalMove(hexagon, THex) Then
+            hexagon.tile.Enabled = True
             MovePiece(hexagon, THex, hexagon.tile)
             sender.Image = Nothing
             sender.Dispose()
@@ -604,6 +606,104 @@
         MovePiece(Board(xy.x, xy.y), xy, tile)
     End Sub
 
+    Private Sub X3y10_Click(sender As Object, e As EventArgs) Handles X3y10.Click
+        Dim xy As Coord
+        xy.x = 3
+        xy.y = 10
+        MovePiece(Board(xy.x, xy.y), xy, sender)
+    End Sub
+
+    Private Sub X3y13_Click(sender As Object, e As EventArgs) Handles X3y13.Click
+        Dim xy As Coord
+        xy.x = 3
+        xy.y = 13
+        MovePiece(Board(xy.x, xy.y), xy, sender)
+    End Sub
+
+    Private Sub X3y14_Click(sender As Object, e As EventArgs) Handles X3y14.Click
+        Dim xy As Coord
+        xy.x = 3
+        xy.y = 14
+        MovePiece(Board(xy.x, xy.y), xy, sender)
+    End Sub
+
+    Private Sub X3y12_Click(sender As Object, e As EventArgs) Handles X3y12.Click
+        Dim xy As Coord
+        xy.x = 3
+        xy.y = 12
+        MovePiece(Board(xy.x, xy.y), xy, sender)
+    End Sub
+
+    Private Sub X3y11_Click(sender As Object, e As EventArgs) Handles X3y11.Click
+        Dim xy As Coord
+        xy.x = 3
+        xy.y = 11
+        MovePiece(Board(xy.x, xy.y), xy, sender)
+    End Sub
+
+    Private Sub X3y8_Click(sender As Object, e As EventArgs) Handles X3y8.Click
+        Dim xy As Coord
+        xy.x = 3
+        xy.y = 8
+        MovePiece(Board(xy.x, xy.y), xy, sender)
+    End Sub
+
+    Private Sub X3y9_Click(sender As Object, e As EventArgs) Handles X3y9.Click
+        Dim xy As Coord
+        xy.x = 3
+        xy.y = 9
+        MovePiece(Board(xy.x, xy.y), xy, sender)
+    End Sub
+
+    Private Sub X3y7_Click(sender As Object, e As EventArgs) Handles X3y7.Click
+        Dim xy As Coord
+        xy.x = 3
+        xy.y = 7
+        MovePiece(Board(xy.x, xy.y), xy, sender)
+    End Sub
+
+    Private Sub X3y4_Click(sender As Object, e As EventArgs) Handles X3y4.Click
+        Dim xy As Coord
+        xy.x = 3
+        xy.y = 4
+        MovePiece(Board(xy.x, xy.y), xy, sender)
+    End Sub
+
+    Private Sub X3y5_Click(sender As Object, e As EventArgs) Handles X3y5.Click
+        Dim xy As Coord
+        xy.x = 3
+        xy.y = 5
+        MovePiece(Board(xy.x, xy.y), xy, sender)
+    End Sub
+
+    Private Sub X3y3_Click(sender As Object, e As EventArgs) Handles X3y3.Click
+        Dim xy As Coord
+        xy.x = 3
+        xy.y = 3
+        MovePiece(Board(xy.x, xy.y), xy, sender)
+    End Sub
+
+    Private Sub X3y2_Click(sender As Object, e As EventArgs) Handles X3y2.Click
+        Dim xy As Coord
+        xy.x = 3
+        xy.y = 2
+        MovePiece(Board(xy.x, xy.y), xy, sender)
+    End Sub
+
+    Private Sub X3y1_Click(sender As Object, e As EventArgs) Handles X3y1.Click
+        Dim xy As Coord
+        xy.x = 3
+        xy.y = 1
+        MovePiece(Board(xy.x, xy.y), xy, sender)
+    End Sub
+
+    Private Sub X3y0_Click(sender As Object, e As EventArgs) Handles X3y0.Click
+        Dim xy As Coord
+        xy.x = 3
+        xy.y = 0
+        MovePiece(Board(xy.x, xy.y), xy, sender)
+    End Sub
+
     Private Sub X4y0_Click(sender As Object, e As EventArgs) Handles X4y0.Click
         Dim xy As Coord
         xy.x = 4
@@ -836,11 +936,42 @@
     End Sub
 
     ' remove this at the end
-    Private Sub Button3_Click(sender As Object, e As EventArgs)
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Moves += 100
     End Sub
 
     Private Sub btnEndTurn_Click(sender As Object, e As EventArgs) Handles btnEndTurn.Click
         EndTurn()
+    End Sub
+
+    '  Changes colour of picturebox when Leaveed over
+    Private Sub PictureBox1_MouseEnter(sender As Object, e As System.EventArgs) Handles X5y9.MouseEnter, X5y8.MouseEnter, X5y7.MouseEnter, X5y6.MouseEnter,
+            X5y5.MouseEnter, X5y4.MouseEnter, X5y2.MouseEnter, X5y15.MouseEnter, X5y14.MouseEnter, X5y13.MouseEnter, X5y12.MouseEnter, X5y11.MouseEnter,
+        X5y10.MouseEnter, X5y1.MouseEnter, X5y0.MouseEnter, X4y9.MouseEnter, X4y8.MouseEnter, X4y7.MouseEnter, X4y6.MouseEnter, X4y4.MouseEnter,
+        X4y3.MouseEnter, X4y2.MouseEnter, X4y15.MouseEnter, X4y13.MouseEnter, X4y11.MouseEnter, X4y10.MouseEnter, X4y1.MouseEnter, X4y0.MouseEnter,
+        X3y13.MouseEnter, X3y12.MouseEnter, X3y11.MouseEnter, X3y10.MouseEnter, X3y1.MouseEnter, X3y0.MouseEnter, X2y9.MouseEnter, X2y8.MouseEnter,
+        X2y7.MouseEnter, X2y6.MouseEnter, X2y5.MouseEnter, X2y4.MouseEnter, X2y3.MouseEnter, X2y2.MouseEnter, X2y15.MouseEnter, X2y14.MouseEnter,
+        X2y13.MouseEnter, X2y12.MouseEnter, X2y11.MouseEnter, X2y10.MouseEnter, X2y1.MouseEnter, X2y0.MouseEnter, X1y9.MouseEnter, X1y8.MouseEnter,
+        X1y7.MouseEnter, X1y6.MouseEnter, X1y5.MouseEnter, X1y4.MouseEnter, X1y3.MouseEnter, X1y15.MouseEnter, X1y14.MouseEnter, X1y13.MouseEnter,
+        X1y11.MouseEnter, X1y10.MouseEnter, X1y1.MouseEnter, X0y9.MouseEnter, X0y8.MouseEnter, X0y6.MouseEnter, X0y5.MouseEnter, X0y4.MouseEnter,
+        X0y3.MouseEnter, X0y2.MouseEnter, X0y15.MouseEnter, X0y14.MouseEnter, X0y13.MouseEnter, X0y12.MouseEnter, X0y10.MouseEnter, X0y1.MouseEnter,
+        X0y0.MouseEnter, X3y9.MouseEnter, X3y8.MouseEnter, X3y7.MouseEnter, X3y5.MouseEnter, X3y4.MouseEnter, X3y3.MouseEnter, X3y2.MouseEnter
+        sender.BackColor = Color.PaleGreen
+    End Sub
+
+    'Changes colour of pictrebox when not Leaveed over 
+    Private Sub PictureBox1_MouseLeave(sender As Object, e As System.EventArgs) Handles X5y9.MouseLeave, X5y8.MouseLeave, X5y7.MouseLeave, X5y6.MouseLeave,
+        X5y5.MouseLeave, X5y4.MouseLeave, X5y2.MouseLeave, X5y15.MouseLeave, X5y14.MouseLeave, X5y13.MouseLeave, X5y12.MouseLeave, X5y11.MouseLeave,
+        X5y10.MouseLeave, X5y1.MouseLeave, X5y0.MouseLeave, X4y9.MouseLeave, X4y8.MouseLeave, X4y7.MouseLeave, X4y6.MouseLeave, X4y4.MouseLeave,
+        X4y3.MouseLeave, X4y2.MouseLeave, X4y15.MouseLeave, X4y13.MouseLeave, X4y11.MouseLeave, X4y10.MouseLeave, X4y1.MouseLeave, X4y0.MouseLeave,
+        X3y9.MouseLeave, X3y8.MouseLeave, X3y7.MouseLeave, X3y5.MouseLeave, X3y4.MouseLeave, X3y3.MouseLeave, X3y2.MouseLeave, X3y14.MouseLeave,
+        X3y13.MouseLeave, X3y12.MouseLeave, X3y11.MouseLeave, X3y10.MouseLeave, X3y1.MouseLeave, X3y0.MouseLeave, X2y9.MouseLeave, X2y8.MouseLeave,
+        X2y7.MouseLeave, X2y6.MouseLeave, X2y5.MouseLeave, X2y4.MouseLeave, X2y3.MouseLeave, X2y2.MouseLeave, X2y15.MouseLeave, X2y14.MouseLeave,
+        X2y13.MouseLeave, X2y12.MouseLeave, X2y11.MouseLeave, X2y10.MouseLeave, X2y1.MouseLeave, X2y0.MouseLeave, X1y9.MouseLeave, X1y8.MouseLeave,
+        X1y7.MouseLeave, X1y6.MouseLeave, X1y5.MouseLeave, X1y4.MouseLeave, X1y3.MouseLeave, X1y15.MouseLeave, X1y14.MouseLeave, X1y13.MouseLeave,
+        X1y11.MouseLeave, X1y10.MouseLeave, X1y1.MouseLeave, X0y9.MouseLeave, X0y8.MouseLeave, X0y6.MouseLeave, X0y5.MouseLeave, X0y4.MouseLeave,
+        X0y3.MouseLeave, X0y2.MouseLeave, X0y15.MouseLeave, X0y14.MouseLeave, X0y13.MouseLeave, X0y12.MouseLeave, X0y10.MouseLeave, X0y1.MouseLeave,
+        X0y0.MouseLeave
+        sender.BackColor = Color.Transparent
     End Sub
 End Class

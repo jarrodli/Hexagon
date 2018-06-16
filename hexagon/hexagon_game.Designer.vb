@@ -125,16 +125,18 @@ Partial Class hexagon_game
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnEndTurn = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lblHint = New System.Windows.Forms.Label()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.d2 = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.lblP1 = New System.Windows.Forms.Label()
         Me.lblP2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.lblP3 = New System.Windows.Forms.Label()
-        Me.lblHint = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.d2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         CType(Me.X0y0, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.X0y1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.X0y2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -229,6 +231,8 @@ Partial Class hexagon_game
         CType(Me.d1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.d2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'X0y0
@@ -245,7 +249,7 @@ Partial Class hexagon_game
         '
         'ProgressBar
         '
-        Me.ProgressBar.Location = New System.Drawing.Point(1562, 611)
+        Me.ProgressBar.Location = New System.Drawing.Point(1534, 613)
         Me.ProgressBar.Name = "ProgressBar"
         Me.ProgressBar.Size = New System.Drawing.Size(100, 23)
         Me.ProgressBar.TabIndex = 2
@@ -307,9 +311,9 @@ Partial Class hexagon_game
         'X1y1
         '
         Me.X1y1.BackColor = System.Drawing.Color.Transparent
-        Me.X1y1.Location = New System.Drawing.Point(111, 152)
+        Me.X1y1.Location = New System.Drawing.Point(111, 144)
         Me.X1y1.Name = "X1y1"
-        Me.X1y1.Size = New System.Drawing.Size(60, 93)
+        Me.X1y1.Size = New System.Drawing.Size(60, 101)
         Me.X1y1.TabIndex = 9
         Me.X1y1.TabStop = False
         '
@@ -379,18 +383,18 @@ Partial Class hexagon_game
         'X1y3
         '
         Me.X1y3.BackColor = System.Drawing.Color.Transparent
-        Me.X1y3.Location = New System.Drawing.Point(282, 152)
+        Me.X1y3.Location = New System.Drawing.Point(282, 144)
         Me.X1y3.Name = "X1y3"
-        Me.X1y3.Size = New System.Drawing.Size(60, 93)
+        Me.X1y3.Size = New System.Drawing.Size(60, 101)
         Me.X1y3.TabIndex = 17
         Me.X1y3.TabStop = False
         '
         'X1y5
         '
         Me.X1y5.BackColor = System.Drawing.Color.Transparent
-        Me.X1y5.Location = New System.Drawing.Point(453, 152)
+        Me.X1y5.Location = New System.Drawing.Point(453, 144)
         Me.X1y5.Name = "X1y5"
-        Me.X1y5.Size = New System.Drawing.Size(60, 93)
+        Me.X1y5.Size = New System.Drawing.Size(60, 101)
         Me.X1y5.TabIndex = 18
         Me.X1y5.TabStop = False
         '
@@ -424,9 +428,9 @@ Partial Class hexagon_game
         'X1y7
         '
         Me.X1y7.BackColor = System.Drawing.Color.Transparent
-        Me.X1y7.Location = New System.Drawing.Point(621, 152)
+        Me.X1y7.Location = New System.Drawing.Point(621, 144)
         Me.X1y7.Name = "X1y7"
-        Me.X1y7.Size = New System.Drawing.Size(60, 93)
+        Me.X1y7.Size = New System.Drawing.Size(60, 101)
         Me.X1y7.TabIndex = 22
         Me.X1y7.TabStop = False
         '
@@ -442,9 +446,9 @@ Partial Class hexagon_game
         'X1y9
         '
         Me.X1y9.BackColor = System.Drawing.Color.Transparent
-        Me.X1y9.Location = New System.Drawing.Point(790, 152)
+        Me.X1y9.Location = New System.Drawing.Point(790, 144)
         Me.X1y9.Name = "X1y9"
-        Me.X1y9.Size = New System.Drawing.Size(60, 93)
+        Me.X1y9.Size = New System.Drawing.Size(60, 101)
         Me.X1y9.TabIndex = 24
         Me.X1y9.TabStop = False
         '
@@ -460,9 +464,9 @@ Partial Class hexagon_game
         'X1y11
         '
         Me.X1y11.BackColor = System.Drawing.Color.Transparent
-        Me.X1y11.Location = New System.Drawing.Point(963, 152)
+        Me.X1y11.Location = New System.Drawing.Point(963, 144)
         Me.X1y11.Name = "X1y11"
-        Me.X1y11.Size = New System.Drawing.Size(60, 93)
+        Me.X1y11.Size = New System.Drawing.Size(60, 101)
         Me.X1y11.TabIndex = 26
         Me.X1y11.TabStop = False
         '
@@ -478,18 +482,18 @@ Partial Class hexagon_game
         'X1y13
         '
         Me.X1y13.BackColor = System.Drawing.Color.Transparent
-        Me.X1y13.Location = New System.Drawing.Point(1132, 152)
+        Me.X1y13.Location = New System.Drawing.Point(1132, 144)
         Me.X1y13.Name = "X1y13"
-        Me.X1y13.Size = New System.Drawing.Size(60, 93)
+        Me.X1y13.Size = New System.Drawing.Size(60, 101)
         Me.X1y13.TabIndex = 27
         Me.X1y13.TabStop = False
         '
         'X1y15
         '
         Me.X1y15.BackColor = System.Drawing.Color.Transparent
-        Me.X1y15.Location = New System.Drawing.Point(1301, 152)
+        Me.X1y15.Location = New System.Drawing.Point(1301, 144)
         Me.X1y15.Name = "X1y15"
-        Me.X1y15.Size = New System.Drawing.Size(60, 93)
+        Me.X1y15.Size = New System.Drawing.Size(60, 101)
         Me.X1y15.TabIndex = 28
         Me.X1y15.TabStop = False
         '
@@ -750,7 +754,7 @@ Partial Class hexagon_game
         Me.X4y3.BackColor = System.Drawing.Color.Transparent
         Me.X4y3.Location = New System.Drawing.Point(282, 638)
         Me.X4y3.Name = "X4y3"
-        Me.X4y3.Size = New System.Drawing.Size(60, 93)
+        Me.X4y3.Size = New System.Drawing.Size(60, 100)
         Me.X4y3.TabIndex = 50
         Me.X4y3.TabStop = False
         '
@@ -768,7 +772,7 @@ Partial Class hexagon_game
         Me.X4y1.BackColor = System.Drawing.Color.Transparent
         Me.X4y1.Location = New System.Drawing.Point(111, 638)
         Me.X4y1.Name = "X4y1"
-        Me.X4y1.Size = New System.Drawing.Size(60, 93)
+        Me.X4y1.Size = New System.Drawing.Size(60, 100)
         Me.X4y1.TabIndex = 51
         Me.X4y1.TabStop = False
         '
@@ -795,25 +799,25 @@ Partial Class hexagon_game
         Me.X5y1.BackColor = System.Drawing.Color.Transparent
         Me.X5y1.Location = New System.Drawing.Point(111, 737)
         Me.X5y1.Name = "X5y1"
-        Me.X5y1.Size = New System.Drawing.Size(60, 93)
+        Me.X5y1.Size = New System.Drawing.Size(60, 102)
         Me.X5y1.TabIndex = 54
         Me.X5y1.TabStop = False
         '
         'X5y0
         '
         Me.X5y0.BackColor = System.Drawing.Color.Transparent
-        Me.X5y0.Location = New System.Drawing.Point(27, 792)
+        Me.X5y0.Location = New System.Drawing.Point(27, 785)
         Me.X5y0.Name = "X5y0"
-        Me.X5y0.Size = New System.Drawing.Size(60, 93)
+        Me.X5y0.Size = New System.Drawing.Size(60, 100)
         Me.X5y0.TabIndex = 55
         Me.X5y0.TabStop = False
         '
         'X5y2
         '
         Me.X5y2.BackColor = System.Drawing.Color.Transparent
-        Me.X5y2.Location = New System.Drawing.Point(196, 792)
+        Me.X5y2.Location = New System.Drawing.Point(196, 785)
         Me.X5y2.Name = "X5y2"
-        Me.X5y2.Size = New System.Drawing.Size(60, 93)
+        Me.X5y2.Size = New System.Drawing.Size(60, 100)
         Me.X5y2.TabIndex = 56
         Me.X5y2.TabStop = False
         '
@@ -822,7 +826,7 @@ Partial Class hexagon_game
         Me.X4y7.BackColor = System.Drawing.Color.Transparent
         Me.X4y7.Location = New System.Drawing.Point(621, 638)
         Me.X4y7.Name = "X4y7"
-        Me.X4y7.Size = New System.Drawing.Size(60, 93)
+        Me.X4y7.Size = New System.Drawing.Size(60, 100)
         Me.X4y7.TabIndex = 57
         Me.X4y7.TabStop = False
         '
@@ -849,7 +853,7 @@ Partial Class hexagon_game
         Me.X5y5.BackColor = System.Drawing.Color.Transparent
         Me.X5y5.Location = New System.Drawing.Point(453, 737)
         Me.X5y5.Name = "X5y5"
-        Me.X5y5.Size = New System.Drawing.Size(60, 93)
+        Me.X5y5.Size = New System.Drawing.Size(60, 102)
         Me.X5y5.TabIndex = 60
         Me.X5y5.TabStop = False
         '
@@ -858,25 +862,25 @@ Partial Class hexagon_game
         Me.X4y9.BackColor = System.Drawing.Color.Transparent
         Me.X4y9.Location = New System.Drawing.Point(790, 638)
         Me.X4y9.Name = "X4y9"
-        Me.X4y9.Size = New System.Drawing.Size(60, 93)
+        Me.X4y9.Size = New System.Drawing.Size(60, 100)
         Me.X4y9.TabIndex = 60
         Me.X4y9.TabStop = False
         '
         'X5y4
         '
         Me.X5y4.BackColor = System.Drawing.Color.Transparent
-        Me.X5y4.Location = New System.Drawing.Point(364, 792)
+        Me.X5y4.Location = New System.Drawing.Point(364, 785)
         Me.X5y4.Name = "X5y4"
-        Me.X5y4.Size = New System.Drawing.Size(60, 93)
+        Me.X5y4.Size = New System.Drawing.Size(60, 100)
         Me.X5y4.TabIndex = 61
         Me.X5y4.TabStop = False
         '
         'X5y6
         '
         Me.X5y6.BackColor = System.Drawing.Color.Transparent
-        Me.X5y6.Location = New System.Drawing.Point(538, 792)
+        Me.X5y6.Location = New System.Drawing.Point(538, 785)
         Me.X5y6.Name = "X5y6"
-        Me.X5y6.Size = New System.Drawing.Size(60, 93)
+        Me.X5y6.Size = New System.Drawing.Size(60, 100)
         Me.X5y6.TabIndex = 62
         Me.X5y6.TabStop = False
         '
@@ -885,16 +889,16 @@ Partial Class hexagon_game
         Me.X5y7.BackColor = System.Drawing.Color.Transparent
         Me.X5y7.Location = New System.Drawing.Point(621, 737)
         Me.X5y7.Name = "X5y7"
-        Me.X5y7.Size = New System.Drawing.Size(60, 93)
+        Me.X5y7.Size = New System.Drawing.Size(60, 102)
         Me.X5y7.TabIndex = 63
         Me.X5y7.TabStop = False
         '
         'X5y8
         '
         Me.X5y8.BackColor = System.Drawing.Color.Transparent
-        Me.X5y8.Location = New System.Drawing.Point(708, 792)
+        Me.X5y8.Location = New System.Drawing.Point(708, 785)
         Me.X5y8.Name = "X5y8"
-        Me.X5y8.Size = New System.Drawing.Size(60, 93)
+        Me.X5y8.Size = New System.Drawing.Size(60, 100)
         Me.X5y8.TabIndex = 64
         Me.X5y8.TabStop = False
         '
@@ -903,16 +907,16 @@ Partial Class hexagon_game
         Me.X5y9.BackColor = System.Drawing.Color.Transparent
         Me.X5y9.Location = New System.Drawing.Point(790, 737)
         Me.X5y9.Name = "X5y9"
-        Me.X5y9.Size = New System.Drawing.Size(60, 93)
+        Me.X5y9.Size = New System.Drawing.Size(60, 102)
         Me.X5y9.TabIndex = 65
         Me.X5y9.TabStop = False
         '
         'X5y10
         '
         Me.X5y10.BackColor = System.Drawing.Color.Transparent
-        Me.X5y10.Location = New System.Drawing.Point(878, 792)
+        Me.X5y10.Location = New System.Drawing.Point(878, 785)
         Me.X5y10.Name = "X5y10"
-        Me.X5y10.Size = New System.Drawing.Size(60, 93)
+        Me.X5y10.Size = New System.Drawing.Size(60, 100)
         Me.X5y10.TabIndex = 66
         Me.X5y10.TabStop = False
         '
@@ -930,7 +934,7 @@ Partial Class hexagon_game
         Me.X4y11.BackColor = System.Drawing.Color.Transparent
         Me.X4y11.Location = New System.Drawing.Point(963, 638)
         Me.X4y11.Name = "X4y11"
-        Me.X4y11.Size = New System.Drawing.Size(60, 93)
+        Me.X4y11.Size = New System.Drawing.Size(60, 100)
         Me.X4y11.TabIndex = 67
         Me.X4y11.TabStop = False
         '
@@ -939,7 +943,7 @@ Partial Class hexagon_game
         Me.X5y11.BackColor = System.Drawing.Color.Transparent
         Me.X5y11.Location = New System.Drawing.Point(963, 737)
         Me.X5y11.Name = "X5y11"
-        Me.X5y11.Size = New System.Drawing.Size(60, 93)
+        Me.X5y11.Size = New System.Drawing.Size(60, 102)
         Me.X5y11.TabIndex = 68
         Me.X5y11.TabStop = False
         '
@@ -948,16 +952,16 @@ Partial Class hexagon_game
         Me.X4y13.BackColor = System.Drawing.Color.Transparent
         Me.X4y13.Location = New System.Drawing.Point(1132, 638)
         Me.X4y13.Name = "X4y13"
-        Me.X4y13.Size = New System.Drawing.Size(60, 93)
+        Me.X4y13.Size = New System.Drawing.Size(60, 100)
         Me.X4y13.TabIndex = 69
         Me.X4y13.TabStop = False
         '
         'X5y12
         '
         Me.X5y12.BackColor = System.Drawing.Color.Transparent
-        Me.X5y12.Location = New System.Drawing.Point(1046, 792)
+        Me.X5y12.Location = New System.Drawing.Point(1046, 785)
         Me.X5y12.Name = "X5y12"
-        Me.X5y12.Size = New System.Drawing.Size(60, 93)
+        Me.X5y12.Size = New System.Drawing.Size(60, 100)
         Me.X5y12.TabIndex = 70
         Me.X5y12.TabStop = False
         '
@@ -966,7 +970,7 @@ Partial Class hexagon_game
         Me.X5y13.BackColor = System.Drawing.Color.Transparent
         Me.X5y13.Location = New System.Drawing.Point(1132, 737)
         Me.X5y13.Name = "X5y13"
-        Me.X5y13.Size = New System.Drawing.Size(60, 93)
+        Me.X5y13.Size = New System.Drawing.Size(60, 102)
         Me.X5y13.TabIndex = 71
         Me.X5y13.TabStop = False
         '
@@ -982,9 +986,9 @@ Partial Class hexagon_game
         'X5y14
         '
         Me.X5y14.BackColor = System.Drawing.Color.Transparent
-        Me.X5y14.Location = New System.Drawing.Point(1215, 792)
+        Me.X5y14.Location = New System.Drawing.Point(1215, 785)
         Me.X5y14.Name = "X5y14"
-        Me.X5y14.Size = New System.Drawing.Size(60, 93)
+        Me.X5y14.Size = New System.Drawing.Size(60, 100)
         Me.X5y14.TabIndex = 72
         Me.X5y14.TabStop = False
         '
@@ -993,7 +997,7 @@ Partial Class hexagon_game
         Me.X5y15.BackColor = System.Drawing.Color.Transparent
         Me.X5y15.Location = New System.Drawing.Point(1301, 737)
         Me.X5y15.Name = "X5y15"
-        Me.X5y15.Size = New System.Drawing.Size(60, 93)
+        Me.X5y15.Size = New System.Drawing.Size(60, 102)
         Me.X5y15.TabIndex = 73
         Me.X5y15.TabStop = False
         '
@@ -1010,9 +1014,9 @@ Partial Class hexagon_game
         '
         Me.btnThrowDice.BackColor = System.Drawing.Color.White
         Me.btnThrowDice.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold)
-        Me.btnThrowDice.Location = New System.Drawing.Point(1466, 711)
+        Me.btnThrowDice.Location = New System.Drawing.Point(1443, 711)
         Me.btnThrowDice.Name = "btnThrowDice"
-        Me.btnThrowDice.Size = New System.Drawing.Size(268, 77)
+        Me.btnThrowDice.Size = New System.Drawing.Size(291, 77)
         Me.btnThrowDice.TabIndex = 75
         Me.btnThrowDice.Text = "ROLL DICE"
         Me.btnThrowDice.UseVisualStyleBackColor = False
@@ -1086,6 +1090,7 @@ Partial Class hexagon_game
         'lblScore
         '
         Me.lblScore.AutoSize = True
+        Me.lblScore.BackColor = System.Drawing.Color.White
         Me.lblScore.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblScore.Location = New System.Drawing.Point(1617, 72)
         Me.lblScore.Name = "lblScore"
@@ -1096,6 +1101,7 @@ Partial Class hexagon_game
         'lblMoves
         '
         Me.lblMoves.AutoSize = True
+        Me.lblMoves.BackColor = System.Drawing.Color.White
         Me.lblMoves.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMoves.Location = New System.Drawing.Point(1617, 126)
         Me.lblMoves.Name = "lblMoves"
@@ -1106,8 +1112,9 @@ Partial Class hexagon_game
         'lblPlayer
         '
         Me.lblPlayer.AutoSize = True
+        Me.lblPlayer.BackColor = System.Drawing.Color.White
         Me.lblPlayer.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPlayer.Location = New System.Drawing.Point(1488, 27)
+        Me.lblPlayer.Location = New System.Drawing.Point(1487, 18)
         Me.lblPlayer.Name = "lblPlayer"
         Me.lblPlayer.Size = New System.Drawing.Size(196, 45)
         Me.lblPlayer.TabIndex = 85
@@ -1138,6 +1145,7 @@ Partial Class hexagon_game
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.White
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(1464, 72)
         Me.Label1.Name = "Label1"
@@ -1148,6 +1156,7 @@ Partial Class hexagon_game
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.White
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(1464, 129)
         Me.Label2.Name = "Label2"
@@ -1159,82 +1168,12 @@ Partial Class hexagon_game
         '
         Me.btnEndTurn.BackColor = System.Drawing.Color.White
         Me.btnEndTurn.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold)
-        Me.btnEndTurn.Location = New System.Drawing.Point(1466, 795)
+        Me.btnEndTurn.Location = New System.Drawing.Point(1443, 795)
         Me.btnEndTurn.Name = "btnEndTurn"
-        Me.btnEndTurn.Size = New System.Drawing.Size(268, 77)
+        Me.btnEndTurn.Size = New System.Drawing.Size(291, 77)
         Me.btnEndTurn.TabIndex = 90
         Me.btnEndTurn.Text = "END TURN"
         Me.btnEndTurn.UseVisualStyleBackColor = False
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(1456, 297)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(278, 45)
-        Me.Label3.TabIndex = 91
-        Me.Label3.Text = "Clan Piece Scores"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(1470, 363)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(147, 45)
-        Me.Label4.TabIndex = 92
-        Me.Label4.Text = "Piece 1 -"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(1470, 420)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(147, 45)
-        Me.Label5.TabIndex = 93
-        Me.Label5.Text = "Piece 2 -"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(1470, 476)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(147, 45)
-        Me.Label6.TabIndex = 94
-        Me.Label6.Text = "Piece 3 -"
-        '
-        'lblP1
-        '
-        Me.lblP1.AutoSize = True
-        Me.lblP1.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblP1.Location = New System.Drawing.Point(1646, 363)
-        Me.lblP1.Name = "lblP1"
-        Me.lblP1.Size = New System.Drawing.Size(38, 45)
-        Me.lblP1.TabIndex = 95
-        Me.lblP1.Text = "0"
-        '
-        'lblP2
-        '
-        Me.lblP2.AutoSize = True
-        Me.lblP2.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblP2.Location = New System.Drawing.Point(1646, 420)
-        Me.lblP2.Name = "lblP2"
-        Me.lblP2.Size = New System.Drawing.Size(38, 45)
-        Me.lblP2.TabIndex = 96
-        Me.lblP2.Text = "0"
-        '
-        'lblP3
-        '
-        Me.lblP3.AutoSize = True
-        Me.lblP3.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblP3.Location = New System.Drawing.Point(1646, 476)
-        Me.lblP3.Name = "lblP3"
-        Me.lblP3.Size = New System.Drawing.Size(38, 45)
-        Me.lblP3.TabIndex = 97
-        Me.lblP3.Text = "0"
         '
         'lblHint
         '
@@ -1261,12 +1200,107 @@ Partial Class hexagon_game
         '
         Me.d2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.d2.Image = Global.hexagon.My.Resources.Resources.DiceRoll1
-        Me.d2.Location = New System.Drawing.Point(1512, 545)
+        Me.d2.Location = New System.Drawing.Point(1507, 545)
         Me.d2.Name = "d2"
         Me.d2.Size = New System.Drawing.Size(160, 160)
         Me.d2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.d2.TabIndex = 100
         Me.d2.TabStop = False
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.White
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(1487, 362)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(147, 45)
+        Me.Label4.TabIndex = 92
+        Me.Label4.Text = "Piece 1 -"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.White
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(1487, 419)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(147, 45)
+        Me.Label5.TabIndex = 93
+        Me.Label5.Text = "Piece 2 -"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.White
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(1487, 475)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(147, 45)
+        Me.Label6.TabIndex = 94
+        Me.Label6.Text = "Piece 3 -"
+        '
+        'lblP1
+        '
+        Me.lblP1.AutoSize = True
+        Me.lblP1.BackColor = System.Drawing.Color.White
+        Me.lblP1.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblP1.Location = New System.Drawing.Point(1663, 362)
+        Me.lblP1.Name = "lblP1"
+        Me.lblP1.Size = New System.Drawing.Size(38, 45)
+        Me.lblP1.TabIndex = 95
+        Me.lblP1.Text = "0"
+        '
+        'lblP2
+        '
+        Me.lblP2.AutoSize = True
+        Me.lblP2.BackColor = System.Drawing.Color.White
+        Me.lblP2.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblP2.Location = New System.Drawing.Point(1663, 419)
+        Me.lblP2.Name = "lblP2"
+        Me.lblP2.Size = New System.Drawing.Size(38, 45)
+        Me.lblP2.TabIndex = 96
+        Me.lblP2.Text = "0"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.White
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(1449, 295)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(278, 45)
+        Me.Label3.TabIndex = 91
+        Me.Label3.Text = "Clan Piece Scores"
+        '
+        'lblP3
+        '
+        Me.lblP3.AutoSize = True
+        Me.lblP3.BackColor = System.Drawing.Color.White
+        Me.lblP3.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblP3.Location = New System.Drawing.Point(1663, 475)
+        Me.lblP3.Name = "lblP3"
+        Me.lblP3.Size = New System.Drawing.Size(38, 45)
+        Me.lblP3.TabIndex = 97
+        Me.lblP3.Text = "0"
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.White
+        Me.PictureBox2.Location = New System.Drawing.Point(1443, 12)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(291, 173)
+        Me.PictureBox2.TabIndex = 101
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.BackColor = System.Drawing.Color.White
+        Me.PictureBox3.Location = New System.Drawing.Point(1443, 280)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(291, 259)
+        Me.PictureBox3.TabIndex = 102
+        Me.PictureBox3.TabStop = False
         '
         'hexagon_game
         '
@@ -1275,7 +1309,11 @@ Partial Class hexagon_game
         Me.BackgroundImage = Global.hexagon.My.Resources.Resources.board
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(1761, 884)
-        Me.Controls.Add(Me.d1)
+        Me.Controls.Add(Me.C1p2)
+        Me.Controls.Add(Me.C1p3)
+        Me.Controls.Add(Me.C2p3)
+        Me.Controls.Add(Me.C2p1)
+        Me.Controls.Add(Me.C1p1)
         Me.Controls.Add(Me.d2)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.lblHint)
@@ -1293,12 +1331,6 @@ Partial Class hexagon_game
         Me.Controls.Add(Me.lblPlayer)
         Me.Controls.Add(Me.lblMoves)
         Me.Controls.Add(Me.lblScore)
-        Me.Controls.Add(Me.C2p3)
-        Me.Controls.Add(Me.C2p2)
-        Me.Controls.Add(Me.C2p1)
-        Me.Controls.Add(Me.C1p3)
-        Me.Controls.Add(Me.C1p2)
-        Me.Controls.Add(Me.C1p1)
         Me.Controls.Add(Me.btnThrowDice)
         Me.Controls.Add(Me.ProgressBar)
         Me.Controls.Add(Me.X5y15)
@@ -1386,6 +1418,10 @@ Partial Class hexagon_game
         Me.Controls.Add(Me.X0y1)
         Me.Controls.Add(Me.X0y0)
         Me.Controls.Add(Me.X2y4)
+        Me.Controls.Add(Me.PictureBox2)
+        Me.Controls.Add(Me.PictureBox3)
+        Me.Controls.Add(Me.C2p2)
+        Me.Controls.Add(Me.d1)
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -1486,6 +1522,8 @@ Partial Class hexagon_game
         CType(Me.d1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.d2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1593,14 +1631,16 @@ Partial Class hexagon_game
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents btnEndTurn As Button
-    Friend WithEvents Label3 As Label
+    Friend WithEvents lblHint As Label
+    Friend WithEvents Button3 As Button
+    Friend WithEvents d2 As PictureBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents lblP1 As Label
     Friend WithEvents lblP2 As Label
+    Friend WithEvents Label3 As Label
     Friend WithEvents lblP3 As Label
-    Friend WithEvents lblHint As Label
-    Friend WithEvents Button3 As Button
-    Friend WithEvents d2 As PictureBox
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PictureBox3 As PictureBox
 End Class
