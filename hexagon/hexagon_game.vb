@@ -34,15 +34,14 @@
         AssignCoord(5, 6)
         AssignCoord(5, 7)
         AssignCoord(5, 8)
+        UpdateScores(0)
         RandomizeGems()
     End Sub
 
     ' Randomize gems on board
     Public Sub RandomizeGems()
 
-
-
-        Dim LegalGemHexs As Hex() = {Board(0, 6), Board(0, 8),
+        Dim LegalGemHexs As Hex() = {Board(0, 5), Board(0, 6), Board(0, 8), Board(0, 9),
                                      Board(1, 6), Board(1, 7), Board(1, 8),
                                      Board(2, 6), Board(2, 7), Board(2, 8),
                                                   Board(3, 7), Board(3, 8),
@@ -82,11 +81,55 @@
 
             LegalGemHexs(rand).occupied = True
             LegalGemHexs(rand).gem = 5
-            AddHandler pb.Click, AddressOf Gem5_Click
+            AddHandler pb.Click, AddressOf Gem_Click
             Controls.Add(pb)
             pb.BringToFront()
         Next
 
+        For i As Integer = 0 To 4 Step 1
+            Dim rand As Integer = GetRandom(0, 7)
+            Dim pb As New PictureBox()
+
+            While (LegalGemHexs(rand).occupied = True)
+                rand = GetRandom(0, 7)
+            End While
+
+            Dim hexagon As Hex = LegalGemHexs(rand)
+
+            hexagon.gem = 5
+            hexagon.occupied = True
+
+            LegalGemTiles(rand).Enabled = False
+
+            With pb
+                .Tag = hexagon
+                .Height = 65
+                .Width = 60
+                .SizeMode = PictureBoxSizeMode.StretchImage
+                .BackColor = Color.Transparent
+                .Image = My.Resources._3
+                .Name = "Gem3_" & i
+                .Location = New Point(CInt(LegalGemTiles(rand).Left + LegalGemTiles(rand).Width - 65),
+                                              CInt(LegalGemTiles(rand).Top + LegalGemTiles(rand).Height - 75))
+            End With
+
+            LegalGemHexs(rand).occupied = True
+            LegalGemHexs(rand).gem = 3
+            AddHandler pb.Click, AddressOf Gem_Click
+            Controls.Add(pb)
+            pb.BringToFront()
+        Next
+
+    End Sub
+
+    ' Plays movement sounds
+    Sub PlayMovement()
+        My.Computer.Audio.Play(My.Resources.movement, AudioPlayMode.Background)
+    End Sub
+
+    ' Plays capture sounds
+    Sub PlayCapture()
+        My.Computer.Audio.Play(My.Resources.movement, AudioPlayMode.Background)
     End Sub
 
     ' Uses a static variable to allow random values based off of system clock 
@@ -105,9 +148,11 @@
             PicBox.Location = New Point(CInt(Tile.Left + Tile.Width - 75), CInt(Tile.Top + Tile.Height - 100))
             Moves -= 1
             lblMoves.Text = Moves
+            PlayMovement()
         End If
     End Sub
 
+    ' Assign a picturebox to a board
     Public Sub AssignCoord(x1 As Integer, y1 As Integer)
         Board(x1, y1).x = x1
         Board(x1, y1).y = y1
@@ -135,10 +180,27 @@
             legal = False
         ElseIf Hexagon.occupied = True And Hexagon.gem <> 0 Then
             Current.SetScore = Hexagon.gem
-            lblScore.Text = CStr(Current.GetScore)
+            UpdateScores(Hexagon.gem)
         End If
         Return legal
     End Function
+
+    'Updates the game scores
+    Public Sub UpdateScores(Value As Integer)
+        If PTurn = 0 Then
+            lblP1.Text = Player00.GetScore
+            lblP2.Text = Player01.GetScore
+            lblP3.Text = Player02.GetScore
+            ScorePlayer1 += Value
+            lblScore.Text = CStr(ScorePlayer1)
+        Else
+            lblP1.Text = Player10.GetScore
+            lblP2.Text = Player11.GetScore
+            lblP3.Text = Player12.GetScore
+            ScorePlayer2 += Value
+            lblScore.Text = CStr(ScorePlayer2)
+        End If
+    End Sub
 
     ' Sets the gamestate up for the next players turn
     Public Sub EndTurn()
@@ -148,10 +210,12 @@
         Else
             PTurn = 0
         End If
+        UpdateScores(0)
         Current = Nothing
         Dice_Thrown = False
         Player = If(Player = 1, 2, 1)
         lblPlayer.Text = "Player " & Player
+        lblMoves.Text = Moves
     End Sub
 
     '''                      '''
@@ -244,7 +308,8 @@
         End If
     End Sub
 
-    Private Sub Gem5_Click(sender As Object, e As EventArgs)
+    ' Handles a gem click event
+    Private Sub Gem_Click(sender As Object, e As EventArgs)
         Dim THex As Coord
         Dim hexagon As Hex = sender.Tag
         THex.x = hexagon.x

@@ -19,5 +19,7 @@
     Public Moves As Integer
     Public Dice_Thrown As Boolean = False
     Public Player = 1
+    Public ScorePlayer1 As Integer = 0
+    Public ScorePlayer2 As Integer = 0
 
 End Module

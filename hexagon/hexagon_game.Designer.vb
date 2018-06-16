@@ -1105,9 +1105,9 @@ Partial Class hexagon_game
         Me.lblMoves.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMoves.Location = New System.Drawing.Point(1617, 126)
         Me.lblMoves.Name = "lblMoves"
-        Me.lblMoves.Size = New System.Drawing.Size(110, 45)
+        Me.lblMoves.Size = New System.Drawing.Size(38, 45)
         Me.lblMoves.TabIndex = 84
-        Me.lblMoves.Text = "Label1"
+        Me.lblMoves.Text = "0"
         '
         'lblPlayer
         '
@@ -1308,7 +1308,8 @@ Partial Class hexagon_game
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(186, Byte), Integer), CType(CType(217, Byte), Integer), CType(CType(215, Byte), Integer))
         Me.BackgroundImage = Global.hexagon.My.Resources.Resources.board
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(1761, 884)
+        Me.ClientSize = New System.Drawing.Size(1758, 884)
+        Me.Controls.Add(Me.C2p2)
         Me.Controls.Add(Me.C1p2)
         Me.Controls.Add(Me.C1p3)
         Me.Controls.Add(Me.C2p3)
@@ -1420,7 +1421,6 @@ Partial Class hexagon_game
         Me.Controls.Add(Me.X2y4)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox3)
-        Me.Controls.Add(Me.C2p2)
         Me.Controls.Add(Me.d1)
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

@@ -101,6 +101,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property attack() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("attack", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property board() As System.Drawing.Bitmap
@@ -227,6 +236,25 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("DiceRoll6", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property hex() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("hex", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property movement() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("movement", resourceCulture)
             End Get
         End Property
     End Module
