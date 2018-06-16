@@ -34,9 +34,9 @@ Partial Class RegistrationModule
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.BackColor = System.Drawing.Color.White
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(469, 405)
+        Me.Label1.Location = New System.Drawing.Point(419, 402)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(106, 45)
         Me.Label1.TabIndex = 0
@@ -47,7 +47,7 @@ Partial Class RegistrationModule
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Segoe UI Black", 60.0!, System.Drawing.FontStyle.Bold)
-        Me.Label2.Location = New System.Drawing.Point(549, 65)
+        Me.Label2.Location = New System.Drawing.Point(499, 62)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(679, 159)
         Me.Label2.TabIndex = 1
@@ -56,7 +56,7 @@ Partial Class RegistrationModule
         'tbC1
         '
         Me.tbC1.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbC1.Location = New System.Drawing.Point(379, 485)
+        Me.tbC1.Location = New System.Drawing.Point(329, 482)
         Me.tbC1.Name = "tbC1"
         Me.tbC1.Size = New System.Drawing.Size(277, 45)
         Me.tbC1.TabIndex = 2
@@ -64,7 +64,7 @@ Partial Class RegistrationModule
         'tbC2
         '
         Me.tbC2.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbC2.Location = New System.Drawing.Point(1167, 485)
+        Me.tbC2.Location = New System.Drawing.Point(1117, 482)
         Me.tbC2.Name = "tbC2"
         Me.tbC2.Size = New System.Drawing.Size(277, 45)
         Me.tbC2.TabIndex = 3
@@ -73,7 +73,7 @@ Partial Class RegistrationModule
         '
         Me.Button1.BackColor = System.Drawing.Color.White
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(798, 697)
+        Me.Button1.Location = New System.Drawing.Point(748, 694)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(219, 124)
         Me.Button1.TabIndex = 4
@@ -83,9 +83,9 @@ Partial Class RegistrationModule
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.BackColor = System.Drawing.Color.White
         Me.Label3.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(1262, 405)
+        Me.Label3.Location = New System.Drawing.Point(1212, 402)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(111, 45)
         Me.Label3.TabIndex = 5
@@ -104,8 +104,7 @@ Partial Class RegistrationModule
         '
         'RegistrationModule
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackgroundImage = Global.hexagon.My.Resources.Resources.hex
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ClientSize = New System.Drawing.Size(1758, 884)
@@ -116,7 +115,9 @@ Partial Class RegistrationModule
         Me.Controls.Add(Me.tbC1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Name = "RegistrationModule"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "RegistrationModule"
         Me.ResumeLayout(False)
         Me.PerformLayout()

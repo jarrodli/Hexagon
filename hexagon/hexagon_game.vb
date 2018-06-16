@@ -1,6 +1,6 @@
 ﻿Public Class hexagon_game
     Public Current As Object = Nothing
-    Public PTurn As Integer = 0
+    Public PTurn As Integer = -1
     Dim PicBox As PictureBox
     Dim STiles() As String = {"C1p1", "C1p2", "C1p3", "C2p1", "C2p2", "C2p3"}
     Public Player00 As New Clan(0, 0, STiles(0), 1)
@@ -9,6 +9,8 @@
     Public Player10 As New Clan(0, 15, STiles(3), 0)
     Public Player11 As New Clan(2, 15, STiles(4), 0)
     Public Player12 As New Clan(4, 15, STiles(5), 0)
+    Dim Startingplayer As String
+    Dim Secondplayer As String
 
     ' Creates a game and sets the board
     Private Sub hexagon_game_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -42,6 +44,7 @@
         AssignCoord(5, 9)
         UpdateScores(0)
         RandomizeGems()
+        MessageBox.Show("Highest dice throw starts the game! " & Player1Name & " followed by " & Player2Name)
     End Sub
 
     ' Randomize gems on board
@@ -220,11 +223,11 @@
         Dim ny As Integer = NewCoord.y
         If Current.GetCoord.x = NewCoord.x And Math.Abs(Current.GetCoord.y - NewCoord.y) = 1 Then
             legal = True
-        ElseIf Current.GetCoord.y = NewCoord.y And Current.GetCoord.x - NewCoord.x < 0 And
+        ElseIf Current.GetCoord.y = NewCoord.y And Current.GetCoord.x - NewCoord.x = -1 And
             ((Current.GetCoord.x Mod 2 = 0 And Current.GetCoord.y Mod 2 = 1) Or
             (Current.GetCoord.x Mod 2 = 1 And Current.GetCoord.y Mod 2 = 0)) Then
             legal = True
-        ElseIf Current.GetCoord.y = NewCoord.y And Current.GetCoord.x - NewCoord.x > 0 And
+        ElseIf Current.GetCoord.y = NewCoord.y And Current.GetCoord.x - NewCoord.x = 1 And
             ((Current.GetCoord.x Mod 2 = 1 And Current.GetCoord.y Mod 2 = 1) Or
             (Current.GetCoord.x Mod 2 = 0 And Current.GetCoord.y Mod 2 = 0)) Then
             legal = True
@@ -267,15 +270,22 @@
         Return legal
     End Function
 
+    ' Captures an opposing clan
     Public Sub TakeEnemy(location As Coord)
         Dim pb As PictureBox = DirectCast(Me.Controls.Find(Board(location.x, location.y).piece, True).FirstOrDefault(), PictureBox)
         Current.SetScore = Board(location.x, location.y).player.GetScore
+        If PTurn = 0 Then
+            Taken1 += 1
+        Else
+            Taken2 += 1
+        End If
         UpdateScores(Board(location.x, location.y).player.GetScore)
         Me.Controls.Remove(pb)
         Board(location.x, location.y).occupied = False
+        CheckWin()
     End Sub
 
-    'Updates the game scores
+    ' Updates the game scores
     Public Sub UpdateScores(Value As Integer)
         If PTurn = 0 Then
             lblP1.Text = Player00.GetScore
@@ -303,9 +313,36 @@
         UpdateScores(0)
         Current = Nothing
         Dice_Thrown = False
-        Player = If(Player = 1, 2, 1)
-        lblPlayer.Text = "Player " & Player
+        Player = If(Player = Startingplayer, Secondplayer, Startingplayer)
+        lblPlayer.Text = Player
         lblMoves.Text = Moves
+    End Sub
+
+    ' Checks a win based off of win clauses
+    Public Sub CheckWin()
+        If ScorePlayer1 = 39 Or Taken1 = 3 Then
+            MessageBox.Show(Player1Name & " wins!")
+            Me.Close()
+        ElseIf ScorePlayer2 = 39 Or Taken2 = 3 Then
+            MessageBox.Show(Player2Name & " wins!")
+            Me.Close()
+        End If
+    End Sub
+
+    ' Handles a gem click event
+    Private Sub Gem_Click(sender As Object, e As EventArgs)
+        Dim THex As Coord
+        Dim hexagon As Hex = sender.Tag
+        THex.x = hexagon.x
+        THex.y = hexagon.y
+        If LegalMove(hexagon, THex) Then
+            PlayCoin()
+            hexagon.tile.Enabled = True
+            MovePiece(hexagon, THex, hexagon.tile)
+            sender.Image = Nothing
+            sender.Dispose()
+            CheckWin()
+        End If
     End Sub
 
     '''                      '''
@@ -351,21 +388,6 @@
         If PTurn = 1 Then
             Current = Player12
             PicBox = DirectCast(sender, PictureBox)
-        End If
-    End Sub
-
-    ' Handles a gem click event
-    Private Sub Gem_Click(sender As Object, e As EventArgs)
-        Dim THex As Coord
-        Dim hexagon As Hex = sender.Tag
-        THex.x = hexagon.x
-        THex.y = hexagon.y
-        If LegalMove(hexagon, THex) Then
-            PlayCoin()
-            hexagon.tile.Enabled = True
-            MovePiece(hexagon, THex, hexagon.tile)
-            sender.Image = Nothing
-            sender.Dispose()
         End If
     End Sub
 
@@ -1012,7 +1034,37 @@
         MovePiece(Board(xy.x, xy.y), xy, sender)
     End Sub
 
+    ' Throws dice at the start of every turn, also decides who goes first
     Private Sub btnThrowDice_Click(sender As Object, e As EventArgs) Handles btnThrowDice.Click
+        If PTurn = -1 Then
+            Dim DT1 As Integer
+            Dice_Thrown = True
+            d1.Visible = True
+            d1.BringToFront()
+            Timer1.Start()
+            DT1 = Moves
+            btnEndTurn.Enabled = False
+            If Moves > 0 Then
+                If DT1 > Moves Then
+                    MessageBox.Show(Player1Name & " to start!")
+                    Startingplayer = Player1Name
+                    Secondplayer = Player2Name
+                    lblPlayer.Text = Startingplayer
+                    PTurn = 0
+                    btnEndTurn.Enabled = True
+                    Player = Player1Name
+                Else
+                    MessageBox.Show(Player2Name & " to start!")
+                    Startingplayer = Player2Name
+                    Secondplayer = Player1Name
+                    lblPlayer.Text = Startingplayer
+                    PTurn = 1
+                    btnEndTurn.Enabled = True
+                    Player = Player2Name
+                End If
+            End If
+        End If
+
         If Dice_Thrown = False Then
             d1.Visible = True
             d1.BringToFront()
@@ -1021,6 +1073,7 @@
         End If
     End Sub
 
+    ' Randomises a dice throw on screen
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         ProgressBar.Increment(5)
         If ProgressBar.Value = 100 Then
@@ -1052,6 +1105,7 @@
         Moves += 100
     End Sub
 
+    ' Ends a turn
     Private Sub btnEndTurn_Click(sender As Object, e As EventArgs) Handles btnEndTurn.Click
         EndTurn()
     End Sub

@@ -73,7 +73,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.vb" />
-    <Compile Include="Class2.vb" />
     <Compile Include="hexagon_game.Designer.vb">
       <DependentUpon>hexagon_game.vb</DependentUpon>
     </Compile>

@@ -1025,10 +1025,10 @@ Partial Class hexagon_game
         '
         Me.C1p1.BackColor = System.Drawing.Color.Transparent
         Me.C1p1.BackgroundImage = Global.hexagon.My.Resources.Resources.C1p1
-        Me.C1p1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.C1p1.Location = New System.Drawing.Point(5, 1)
+        Me.C1p1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.C1p1.Location = New System.Drawing.Point(16, 1)
         Me.C1p1.Name = "C1p1"
-        Me.C1p1.Size = New System.Drawing.Size(100, 100)
+        Me.C1p1.Size = New System.Drawing.Size(80, 100)
         Me.C1p1.TabIndex = 76
         Me.C1p1.TabStop = False
         '
@@ -1036,10 +1036,10 @@ Partial Class hexagon_game
         '
         Me.C1p2.BackColor = System.Drawing.Color.Transparent
         Me.C1p2.BackgroundImage = Global.hexagon.My.Resources.Resources.C1p2
-        Me.C1p2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.C1p2.Location = New System.Drawing.Point(5, 295)
+        Me.C1p2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.C1p2.Location = New System.Drawing.Point(16, 295)
         Me.C1p2.Name = "C1p2"
-        Me.C1p2.Size = New System.Drawing.Size(100, 100)
+        Me.C1p2.Size = New System.Drawing.Size(80, 100)
         Me.C1p2.TabIndex = 77
         Me.C1p2.TabStop = False
         '
@@ -1047,10 +1047,10 @@ Partial Class hexagon_game
         '
         Me.C1p3.BackColor = System.Drawing.Color.Transparent
         Me.C1p3.BackgroundImage = Global.hexagon.My.Resources.Resources.C1p3
-        Me.C1p3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.C1p3.Location = New System.Drawing.Point(5, 785)
+        Me.C1p3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.C1p3.Location = New System.Drawing.Point(16, 785)
         Me.C1p3.Name = "C1p3"
-        Me.C1p3.Size = New System.Drawing.Size(100, 100)
+        Me.C1p3.Size = New System.Drawing.Size(80, 100)
         Me.C1p3.TabIndex = 78
         Me.C1p3.TabStop = False
         '
@@ -1058,10 +1058,10 @@ Partial Class hexagon_game
         '
         Me.C2p1.BackColor = System.Drawing.Color.Transparent
         Me.C2p1.BackgroundImage = Global.hexagon.My.Resources.Resources.C2p1
-        Me.C2p1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.C2p1.Location = New System.Drawing.Point(1281, 48)
+        Me.C2p1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.C2p1.Location = New System.Drawing.Point(1292, 48)
         Me.C2p1.Name = "C2p1"
-        Me.C2p1.Size = New System.Drawing.Size(100, 100)
+        Me.C2p1.Size = New System.Drawing.Size(80, 100)
         Me.C2p1.TabIndex = 79
         Me.C2p1.TabStop = False
         '
@@ -1069,10 +1069,10 @@ Partial Class hexagon_game
         '
         Me.C2p2.BackColor = System.Drawing.Color.Transparent
         Me.C2p2.BackgroundImage = Global.hexagon.My.Resources.Resources.C2p2
-        Me.C2p2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.C2p2.Location = New System.Drawing.Point(1281, 346)
+        Me.C2p2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.C2p2.Location = New System.Drawing.Point(1292, 346)
         Me.C2p2.Name = "C2p2"
-        Me.C2p2.Size = New System.Drawing.Size(100, 100)
+        Me.C2p2.Size = New System.Drawing.Size(80, 100)
         Me.C2p2.TabIndex = 80
         Me.C2p2.TabStop = False
         '
@@ -1080,10 +1080,10 @@ Partial Class hexagon_game
         '
         Me.C2p3.BackColor = System.Drawing.Color.Transparent
         Me.C2p3.BackgroundImage = Global.hexagon.My.Resources.Resources.C2p3
-        Me.C2p3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.C2p3.Location = New System.Drawing.Point(1281, 638)
+        Me.C2p3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.C2p3.Location = New System.Drawing.Point(1292, 638)
         Me.C2p3.Name = "C2p3"
-        Me.C2p3.Size = New System.Drawing.Size(100, 100)
+        Me.C2p3.Size = New System.Drawing.Size(80, 100)
         Me.C2p3.TabIndex = 81
         Me.C2p3.TabStop = False
         '
@@ -1114,11 +1114,10 @@ Partial Class hexagon_game
         Me.lblPlayer.AutoSize = True
         Me.lblPlayer.BackColor = System.Drawing.Color.White
         Me.lblPlayer.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPlayer.Location = New System.Drawing.Point(1487, 18)
+        Me.lblPlayer.Location = New System.Drawing.Point(1526, 12)
         Me.lblPlayer.Name = "lblPlayer"
-        Me.lblPlayer.Size = New System.Drawing.Size(196, 45)
+        Me.lblPlayer.Size = New System.Drawing.Size(0, 45)
         Me.lblPlayer.TabIndex = 85
-        Me.lblPlayer.Text = "Team Name"
         '
         'd1
         '
@@ -1427,6 +1426,7 @@ Partial Class hexagon_game
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.Name = "hexagon_game"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "hexagon_game"
         CType(Me.X0y0, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.X0y1, System.ComponentModel.ISupportInitialize).EndInit()

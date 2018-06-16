@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.hexagon.hexagon_game
+            Me.MainForm = Global.hexagon.RegistrationModule
         End Sub
     End Class
 End Namespace

@@ -3,6 +3,7 @@
     Private coordinate As Coord
     Private tile As String
     Private tag As Integer
+    Private taken As Integer
 
     Public Sub New(ByVal Coord As Integer, ByVal Coord1 As Integer, ByVal Tile As String, ByVal Tag As Integer)
         Me.coordinate.x = Coord
