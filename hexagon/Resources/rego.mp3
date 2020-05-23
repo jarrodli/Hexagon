@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Cepstral - Page not Found!</title>
+		<!-- meta -->
+		<meta charset="utf-8"> 
+		<meta content="" name="description">
+		<link rel="SHORTCUT ICON" href="http://www.cepstral.com/favicon.ico">
+		<!-- stylesheets -->
+		<!-- CSS -->
+		            <link href="/media/css/main.css" type="text/css" rel="stylesheet">
+                    <link href="/media/css/sb_page.css" type="text/css" rel="stylesheet">
+	<body>
+		<input type="hidden" value="en" id="lang_pref">
+		<div id="container">
+			<div id="main_wrapper">
+				<header role="banner" id="main_header">
+					<div id="header_left">	
+						<div id="main_logo">
+							<a href="/"><img title="Cepstral - We Build Voices" alt="Cepstral - We Build Voices" src="/media/images/main/cepstral_top_logo.png"></a>
+						</div>
+						<div style="clear:both;"></div>
+					</div>
+					<div id="header_right">
+						<div id="top_row">
+							<div id="social">
+								<a href="https://www.facebook.com/cepstral"><img alt="Follow us on Facebook" src="/media/images/main/fb_off.png" class="social_icon rollover" id="facebook_icon"></a>
+								<a href="https://www.twitter.com/cepstral_llc"><img alt="Follow us on Twitter" src="/media/images/main/twitter_off.png" class="social_icon rollover" id="twitter_icon"></a>
+							</div>
+						</div>
+						<div id="bottom_row">
+							<div id="address_wrapper">
+								<ul>
+									<li style="display:inline; margin-left:0;">
+										1801 East Carson Street
+									</li>
+									<li>
+										2nd Floor
+									</li>
+									<li>
+										Pittsburgh, PA
+									</li>
+									<li>
+										15203
+									</li>
+									<li>
+										412-432-0400
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div style="clear:both;"></div>
+					</div>
+					<div style="clear:both;"></div>
+					<div class="image_replace" id="page_main_image">
+						<img alt="" src="/media/images/products/products_main.png">
+					</div>
+					<nav role="navigation" id="main_nav"><!--
+						--><div class="main_nav_item"><a href="/en/demos"><img alt="Demos" src="/media/images/main/demo_off.png" class="rollover" id="main_nav_demo"></a></div><!--
+						--><div class="main_nav_item"><a href="/en/personal"><img alt="Personal" src="/media/images/main/personal_off.png" class="rollover" id="main_nav_personal"></a></div><!--
+						--><div class="main_nav_item"><a href="/en/telephony"><img alt="Telephony" src="/media/images/main/telephony_off.png" class="rollover" id="main_nav_telephony"></a></div><!--
+						--><div class="main_nav_item"><a href="/en/products"><img alt="All Products" src="/media/images/main/products_off.png" class="rollover" id="main_nav_products"></a></div><!--
+						--><div class="main_nav_item"><a href="/en/aboutus"><img alt="About Us" src="/media/images/main/about_off.png" class="rollover" id="main_nav_about"></a></div><!--
+						--><div class="main_nav_item"><a href="/en/support"><img alt="Support" src="/media/images/main/support_off.png" class="rollover" id="main_nav_support"></a></div><!--
+						--><div class="main_nav_item"><a href="/blog"><img id="main_nav_blog" class="rollover" src="/media/images/main/blog_off.png" alt="Blog" /></a></div><!--
+						--><div class="main_nav_item"><a href="https://www.cepstral.com/store"><img alt="Store" src="/media/images/main/store_off.png" class="rollover" id="main_nav_store"></a></div>
+					</nav>
+				</header>
+				<div role="main" id="content">
+					
+				<div id="page_content">	
+		<section class="sbpage_content">
+			<div id="page_icon">
+				<h1>Page Not Found!</h1>
+			</div>	
+			<article class="sbpage_content_text">
+				<p>
+					We're sorry but the page you requested was not found.
+				</p>
+			</article>
+			<div style="clear:both;"></div>	
+		</section>
+		<div class="sidebar">
+		
+		</div>
+	</div>				<!-- Begin Footer -->
+				</div>
+				<footer role="contentinfo" id="main_footer">
+					<div>
+						<div class="footer_div">
+							<a href="/" class="footer_link">Home</a>
+						</div>
+						<div class="footer_div">
+							<a href="/en/personal" class="footer_link">Personal</a>
+						</div>
+						<div class="footer_div">
+							<a href="/en/telephony" class="footer_link">Telephony</a>
+						</div>
+						<div class="footer_div">
+							<a href="/en/products" class="footer_link">All Products</a>
+						</div>
+						<div class="footer_div">
+							<a href="/en/aboutus" class="footer_link">About Us</a>
+						</div>
+						<div class="footer_div">
+							<a href="/en/support" class="footer_link">Support</a>
+						</div>
+						<div class="footer_div">
+							<a href="https://www.cepstral.com/store/" class="footer_link">Store</a>
+						</div>
+						<div class="footer_div">
+							<a href="/en/aboutus/contacts" class="footer_link">Contact</a>
+						</div>
+						<div class="footer_div">
+							<span id="footer_copyright">&copy; 2012 Cepstral LLC All Rights Reserved</span>
+						</div>
+						<div class="footer_div">
+							<a href="/en/privacy" class="footer_link">Privacy Policy</a>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<!-- scripts -->
+		<script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<!-- JQuery UI -->
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+		<!-- Google Analytics-->
+		<script type="text/javascript">
+
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-2269415-7']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+					<script src="/media/js/main.js" type="text/javascript"></script>
+			
+</body></html>
